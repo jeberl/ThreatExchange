@@ -24,6 +24,8 @@ data "aws_iam_policy_document" "lambda_assume_role" {
   }
 }
 
+# Lambda For Fetcher
+
 resource "aws_lambda_function" "fetcher" {
   function_name = "${var.prefix}_fetcher"
   package_type  = "Image"
@@ -206,4 +208,9 @@ resource "aws_dynamodb_table" "threatexchange_config" {
       Name = "ThreatExchangeConfig"
     }
   )
+resource "aws_lambda_permission" "fetcher" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.fetcher.function_name
+  principal     = "sns.amazonaws.com"
+  source_arn    = var.threat_exchange_data.notification_topic
 }

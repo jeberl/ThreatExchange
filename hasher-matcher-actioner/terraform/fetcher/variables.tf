@@ -30,11 +30,16 @@ variable "lambda_docker_info" {
 variable "threat_exchange_data" {
   description = "Configuration information for the S3 Bucket that will hold ThreatExchange Data"
   type = object({
-    bucket_name       = string
-    pdq_data_file_key = string
+    bucket_name        = string
+    pdq_data_file_key  = string
+    notification_topic = string
   })
 }
 
+variable "log_retention_in_days" {
+  description = "How long to retain cloudwatch logs for lambda functions in days"
+  type        = number
+}
 
 variable "additional_tags" {
   description = "Additional resource tags"
