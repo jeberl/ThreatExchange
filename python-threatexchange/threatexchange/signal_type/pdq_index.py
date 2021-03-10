@@ -76,11 +76,11 @@ class PDQIndex(SignalTypeIndex):
         Whether or not an index of this type can process the updtae
         from ThreatExchange
         """
-        return update.threat_type() == 'pdq'
+        return update.threat_type == 'pdq'
 
     @classmethod
     def load(cls) -> "SignalTypeIndex[T]":
         pass
 
-    def process_updates(self, updates: t.Iterable(ThreatUpdateJSON)) -> None:
+    def process_updates(self, updates) -> None:
         pass

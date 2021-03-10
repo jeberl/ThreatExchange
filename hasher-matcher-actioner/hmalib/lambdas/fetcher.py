@@ -79,7 +79,7 @@ def lambda_handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': json.dumps(threat_exchange_data)
+        'body': json.dumps(loaded_indexes)
     }
 
 lambda_handler(0,0)

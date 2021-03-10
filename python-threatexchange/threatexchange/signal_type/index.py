@@ -22,9 +22,6 @@ At scale, the flow for matching looks something like:
 
 import typing as t
 
-from hmalib.lambdas.fetcher import ThreatExchangeUpdate
-
-
 
 T = t.TypeVar("T")
 
